@@ -1607,7 +1607,7 @@ camera_capture (Camera *camera, CameraCaptureType type, CameraFilePath *path, GP
 	int	ret, tries, before, after;
 	char	*s, *url;
 
-
+	switchToPlayMode (camera);
 	tries = 10;
 	do {
 		ret = NumberPix(camera);
@@ -1637,6 +1637,9 @@ camera_capture (Camera *camera, CameraCaptureType type, CameraFilePath *path, GP
 	}
 	stopCapture(camera);
 
+	sleep(1);
+
+	switchToPlayMode (camera);
 	tries = 10;
 	do {
 		ret = NumberPix(camera);
